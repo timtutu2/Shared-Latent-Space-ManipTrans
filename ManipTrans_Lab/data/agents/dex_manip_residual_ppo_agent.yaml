@@ -1,0 +1,46 @@
+agent_name: "DictPPO"
+
+model:
+  actor_net: "dict_feature_fusion"
+  actor_init_output_scale: 0.01
+  actor_std_type: "FIXED"
+  # ManipTrans ResDexHand sigma_init=-1 => std=exp(-1)
+  action_std: 0.3678794412
+
+  critic_net: "dict_feature_fusion"
+  critic_init_output_scale: 1.0
+
+  actor_obs_keys: ["proprioception", "target"]
+  critic_obs_keys: ["proprioception", "privileged", "target"]
+
+  # Stage-2 residual conditioning on frozen stage-1 policy output
+  residual_base_model_file: ""
+  residual_base_action_mode: "sample"
+  residual_mlp_units: [512, 128, 64]
+
+actor_optimizer:
+    type: "Adam"
+    # ManipTrans README examples commonly use learning_rate=2e-4 for ResDexHand.
+    learning_rate: 2e-4
+
+critic_optimizer:
+    type: "Adam"
+    learning_rate: 2e-4
+
+discount: 0.99
+steps_per_iter: 32
+iters_per_output: 100
+test_episodes: 32
+normalizer_samples: 100000000
+
+actor_epochs: 5
+actor_batch_size: 4
+critic_epochs: 2
+critic_batch_size: 2
+
+td_lambda: 0.95
+ppo_clip_ratio: 0.2
+norm_adv_clip: 4.0
+action_bound_weight: 10.0
+action_entropy_weight: 0.0
+action_reg_weight: 0.0

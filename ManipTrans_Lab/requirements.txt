@@ -1,0 +1,27 @@
+# Install Isaac Lab separately (see docs.omniverse.nvidia.com).
+# Everything below is what the ManipTrans_Lab code imports at runtime.
+
+# core
+numpy
+torch
+gym
+gymnasium
+pyyaml
+tqdm
+termcolor
+einops
+rl-games
+
+# logging / monitoring (optional but used by util/tb_logger.py & wandb_logger.py)
+tensorboard
+wandb
+
+# ManipTrans-specific (dataset + retargeting)
+bps_torch                 # body-part signature encoder (imitator obs)
+pytorch_kinematics        # mano2dexhand IK
+smplx                     # oakink2_layer body model
+trimesh
+scipy
+
+# dev
+pytest

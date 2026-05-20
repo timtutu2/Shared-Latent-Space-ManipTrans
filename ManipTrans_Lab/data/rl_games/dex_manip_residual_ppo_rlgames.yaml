@@ -1,0 +1,91 @@
+params:
+  seed: 1
+
+  algo:
+    # rl_games uses a2c_continuous agent with ppo=true in config
+    name: a2c_continuous
+
+  model:
+    name: my_continuous_a2c_logstd
+
+  network:
+    name: dict_obs_actor_critic
+    separate: false
+
+    space:
+      continuous:
+        mu_activation: None
+        sigma_activation: None
+        mu_init:
+          name: glorot_normal_initializer
+          gain: 0.01
+        sigma_init:
+          name: const_initializer
+          val: -1
+        fixed_sigma: true
+
+    # ManipTrans original feature fusion style
+    dict_feature_encoder:
+      hidden_depth: 3
+      hidden_dim: 512
+      output_dim: 256
+      activation: swish
+      add_input_activation: false
+      add_output_activation: false
+
+    mlp:
+      units: [256, 512, 128, 64]
+      activation: elu
+      d2rl: false
+      initializer:
+        name: default
+      regularizer:
+        name: None
+
+  config:
+    name: dex_manip_residual_rlgames
+    env_name: rlgpu
+    ppo: true
+    mixed_precision: false
+
+    normalize_input: true
+    normalize_input_excluded_keys: []
+    normalize_value: true
+    value_bootstrap: true
+    normalize_advantage: true
+
+    reward_shaper:
+      scale_value: 1.0
+
+    gamma: 0.99
+    tau: 0.95
+    learning_rate: 5e-4
+    lr_schedule: warmup
+    warmup_steps: 10
+    schedule_type: standard
+    kl_threshold: 0.008
+
+    score_to_win: 10000
+    max_epochs: 10000
+    save_best_after: 2
+    save_frequency: 100
+    print_stats: true
+
+    grad_norm: 1.0
+    entropy_coef: 0.0
+    truncate_grads: true
+    e_clip: 0.2
+
+    horizon_length: 32
+    minibatch_size: 1024
+    mini_epochs: 5
+    critic_coef: 4
+    clip_value: true
+    seq_len: 4
+
+    bounds_loss_coef: 0.0001
+    use_soft_clamp: true
+    mix_ratio: 0.5
+
+    # overwritten by run_rlgames.py from --num_envs
+    num_actors: 4096

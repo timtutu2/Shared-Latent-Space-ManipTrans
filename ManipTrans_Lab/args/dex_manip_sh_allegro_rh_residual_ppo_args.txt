@@ -1,0 +1,7 @@
+--num_envs 4096
+
+--engine_config data/engines/isaac_lab_engine.yaml
+--env_config data/envs/dex_manip_sh_allegro_rh_env.yaml
+--agent_config data/agents/dex_manip_residual_ppo_agent.yaml
+
+--out_dir output/dex_manip_sh_allegro_rh_residual_ppo/

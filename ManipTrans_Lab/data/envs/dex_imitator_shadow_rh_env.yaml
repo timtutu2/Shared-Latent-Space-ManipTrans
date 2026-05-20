@@ -1,0 +1,44 @@
+env_name: "dex_imitator"
+
+# ---- dexhand / task ------------------------------------------------------
+dexhand: "shadow"
+side: "right"
+episodeLength: 2000
+actionScale: 1.0
+aggregateMode: 3
+training: True
+
+useQuatRot: False
+# Shadow uses PID-controlled mode per ManipTrans README (checkpoint imitator_pid_rh_shadow.pth)
+usePIDControl: True
+# Align with ManipTrans README defaults (actionsMovingAverage=0.4,
+# translationScale=1.0 from DexHandImitator.yaml).
+actionsMovingAverage: 0.4
+translationScale: 1.0
+orientationScale: 0.1
+
+# ---- demo data ----------------------------------------------------------
+dataIndices: ["g102"]
+obsFutureLength: 1
+rolloutStateInit: False
+randomStateInit: True
+
+# ---- obs / reward shaping ----------------------------------------------
+obsKeys: ["q", "cos_q", "sin_q", "base_state"]
+privilegedObsKeys: ["dq"]
+tightenMethod: "exp_decay"
+tightenFactor: 0.7
+tightenSteps: 128000
+# Mitigate premature FAIL termination while policy stabilizes.
+failGraceStepsTrain: 32
+failGraceStepsTest: 40
+failDistanceScale: 1.15
+
+# ---- camera ------------------------------------------------------------
+camera_mode: "track"
+
+# ---- engine overrides (optional) ---------------------------------------
+engine:
+    control_mode: "pos"
+    control_freq: 60
+    sim_freq: 120

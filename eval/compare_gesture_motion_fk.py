@@ -1,16 +1,5 @@
 #!/usr/bin/env python3
-"""URDF/FK-based comparison of cross-embodiment hand movement.
-
-This evaluator complements ``compare_gesture_motion.py``. It reconstructs
-fingertip positions with each hand's URDF, then compares:
-
-1. Movement error: normalized fingertip speed profiles.
-2. Wrist error: normalized translation and rotation speed profiles.
-
-Per-hand scale normalization prevents larger robot hands from receiving larger
-errors. Lower errors are better. The similarity index is
-100 * exp(-overall_error).
-"""
+"""Compare fingertip and wrist movement using URDF forward kinematics."""
 
 from __future__ import annotations
 
@@ -37,6 +26,8 @@ MANO_DOF_NAMES = (
     "j_thumb1x", "j_thumb1y", "j_thumb1z",
     "j_thumb2y", "j_thumb2z", "j_thumb3",
 )
+
+
 @dataclass(frozen=True)
 class HandConfig:
     urdf_name: str

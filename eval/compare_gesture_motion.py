@@ -1,20 +1,5 @@
 #!/usr/bin/env python3
-"""Compare cross-embodiment hand trajectories without using world coordinates.
-
-The retargeted PKLs contain joint angles but not Cartesian joint positions, so
-direct fingertip distances cannot be computed without each robot's URDF. Raw
-joint-vector errors are also misleading because each robot uses a different
-mechanism to create the same visible pose. This script instead compares:
-
-1. Gesture: a normalized per-finger activity/progression curve that measures
-   how far the finger has moved from its initial configuration.
-2. Movement: the smoothed rate of change of that progression curve.
-3. Wrist movement: normalized translation and rotation-speed profiles.
-
-The finger errors are correlation distances and are therefore insensitive to
-joint ranges, joint count, and how motion is distributed among coupled joints.
-An error of 0 is ideal. The similarity index is 100 * exp(-overall_error).
-"""
+"""Compare gesture and movement directly from PKL joint trajectories."""
 
 from __future__ import annotations
 
@@ -32,8 +17,7 @@ import numpy as np
 
 FINGERS = ("thumb", "index", "middle", "ring", "pinky")
 
-# The original MANO/ArtiMano pickle predates the metadata fields written to the
-# decoded files. This is the order used by ManipTrans_Lab's Artimano hand.
+# Joint order for MANO PKLs without metadata.
 MANO_DOF_NAMES = (
     "j_index1y", "j_index1z", "j_index2", "j_index3",
     "j_middle1y", "j_middle1z", "j_middle2", "j_middle3",
@@ -207,7 +191,7 @@ def smooth_curve(values: np.ndarray, window: int) -> np.ndarray:
 
 
 def finger_progression(qpos: np.ndarray, smooth_window: int) -> np.ndarray:
-    """Return mechanism-invariant distance from the initial finger pose."""
+    """Measure normalized finger motion from its initial pose."""
     joint_ranges = np.ptp(qpos, axis=0)
     active = joint_ranges > 1e-5
     if not np.any(active):
@@ -220,7 +204,7 @@ def finger_progression(qpos: np.ndarray, smooth_window: int) -> np.ndarray:
 
 
 def correlation_error(reference: np.ndarray, target: np.ndarray) -> tuple[float, float]:
-    """Map positive correlation to [0, 0.5] error; 1 correlation gives 0."""
+    """Convert positive correlation to an error in [0, 0.5]."""
     reference = reference - np.mean(reference)
     target = target - np.mean(target)
     denominator = float(np.linalg.norm(reference) * np.linalg.norm(target))
@@ -334,8 +318,7 @@ def compare_target(
     wrist = compare_wrist(source_data, target_data)
     wrist_movement_error = float(np.mean(list(wrist.values())))
 
-    # Gesture gets the largest weight because the user's main question is
-    # whether the hand shape evolves in the same way.
+    # Prioritize gesture progression over movement speed and wrist motion.
     overall_error = (
         0.60 * gesture_error
         + 0.30 * finger_movement_error

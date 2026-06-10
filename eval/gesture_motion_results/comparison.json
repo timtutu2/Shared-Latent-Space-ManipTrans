@@ -1,0 +1,201 @@
+{
+  "source": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict.pkl",
+  "method": {
+    "gesture": "correlation distance of normalized finger progression",
+    "finger_movement": "correlation distance of smoothed progression rate",
+    "wrist_movement": "normalized translation/rotation speed-profile RMSE",
+    "smooth_window": 9,
+    "overall_weights": {
+      "gesture": 0.6,
+      "finger_movement": 0.3,
+      "wrist_movement": 0.1
+    }
+  },
+  "results": [
+    {
+      "target": "shadow_right",
+      "path": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict_shadow_right.pkl",
+      "frames": 60,
+      "common_fingers": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "missing_source_fingers": [],
+      "finger_results": {
+        "thumb": {
+          "gesture_error": 0.010678261242656861,
+          "gesture_correlation": 0.9786434775146863,
+          "movement_error": 0.004377937926987485,
+          "movement_correlation": 0.991244124146025,
+          "source_dofs": 6,
+          "target_dofs": 5
+        },
+        "index": {
+          "gesture_error": 0.21203355367539156,
+          "gesture_correlation": 0.5759328926492169,
+          "movement_error": 0.04249974962569897,
+          "movement_correlation": 0.9150005007486021,
+          "source_dofs": 4,
+          "target_dofs": 4
+        },
+        "middle": {
+          "gesture_error": 0.0064784903984743125,
+          "gesture_correlation": 0.9870430192030514,
+          "movement_error": 0.002090635079269876,
+          "movement_correlation": 0.9958187298414602,
+          "source_dofs": 4,
+          "target_dofs": 4
+        },
+        "ring": {
+          "gesture_error": 0.05809725699564122,
+          "gesture_correlation": 0.8838054860087176,
+          "movement_error": 0.017228934607204927,
+          "movement_correlation": 0.9655421307855901,
+          "source_dofs": 4,
+          "target_dofs": 4
+        },
+        "pinky": {
+          "gesture_error": 0.051491612642715956,
+          "gesture_correlation": 0.8970167747145681,
+          "movement_error": 0.022535436743050363,
+          "movement_correlation": 0.9549291265138993,
+          "source_dofs": 4,
+          "target_dofs": 5
+        }
+      },
+      "gesture_error": 0.06775583499097598,
+      "finger_movement_error": 0.017746538796442324,
+      "wrist_movement_error": 0.021724727564330353,
+      "wrist_results": {
+        "translation_movement_error": 0.0,
+        "rotation_movement_error": 0.043449455128660705
+      },
+      "overall_error": 0.048149935389951326,
+      "similarity_index": 95.29908893044478
+    },
+    {
+      "target": "allegro_right",
+      "path": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict_allegro_right.pkl",
+      "frames": 60,
+      "common_fingers": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "missing_source_fingers": [
+        "pinky"
+      ],
+      "finger_results": {
+        "thumb": {
+          "gesture_error": 0.05398887755800874,
+          "gesture_correlation": 0.8920222448839825,
+          "movement_error": 0.025859335361337388,
+          "movement_correlation": 0.9482813292773252,
+          "source_dofs": 6,
+          "target_dofs": 4
+        },
+        "index": {
+          "gesture_error": 0.2537895805615211,
+          "gesture_correlation": 0.49242083887695776,
+          "movement_error": 0.031122140854282387,
+          "movement_correlation": 0.9377557182914352,
+          "source_dofs": 4,
+          "target_dofs": 4
+        },
+        "middle": {
+          "gesture_error": 0.07681502461917472,
+          "gesture_correlation": 0.8463699507616506,
+          "movement_error": 0.020309588497346598,
+          "movement_correlation": 0.9593808230053068,
+          "source_dofs": 4,
+          "target_dofs": 4
+        },
+        "ring": {
+          "gesture_error": 0.026163590514589108,
+          "gesture_correlation": 0.9476728189708218,
+          "movement_error": 0.011845558511635323,
+          "movement_correlation": 0.9763088829767294,
+          "source_dofs": 4,
+          "target_dofs": 4
+        }
+      },
+      "gesture_error": 0.10268926831332342,
+      "finger_movement_error": 0.022284155806150424,
+      "wrist_movement_error": 0.03565154774372032,
+      "wrist_results": {
+        "translation_movement_error": 0.0,
+        "rotation_movement_error": 0.07130309548744064
+      },
+      "overall_error": 0.0718639625042112,
+      "similarity_index": 93.0657491514712
+    },
+    {
+      "target": "inspire_right",
+      "path": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict_inspire_right.pkl",
+      "frames": 60,
+      "common_fingers": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "missing_source_fingers": [],
+      "finger_results": {
+        "thumb": {
+          "gesture_error": 0.013876102539489676,
+          "gesture_correlation": 0.9722477949210206,
+          "movement_error": 0.005767353062418434,
+          "movement_correlation": 0.9884652938751631,
+          "source_dofs": 6,
+          "target_dofs": 4
+        },
+        "index": {
+          "gesture_error": 0.4081972750932772,
+          "gesture_correlation": 0.18360544981344556,
+          "movement_error": 0.06706510206002514,
+          "movement_correlation": 0.8658697958799497,
+          "source_dofs": 4,
+          "target_dofs": 2
+        },
+        "middle": {
+          "gesture_error": 0.1909083716968467,
+          "gesture_correlation": 0.6181832566063066,
+          "movement_error": 0.052710931776122794,
+          "movement_correlation": 0.8945781364477544,
+          "source_dofs": 4,
+          "target_dofs": 2
+        },
+        "ring": {
+          "gesture_error": 0.01987015758350147,
+          "gesture_correlation": 0.9602596848329971,
+          "movement_error": 0.007227747202963319,
+          "movement_correlation": 0.9855445055940734,
+          "source_dofs": 4,
+          "target_dofs": 2
+        },
+        "pinky": {
+          "gesture_error": 0.0703932094355979,
+          "gesture_correlation": 0.8592135811288042,
+          "movement_error": 0.008143677315252562,
+          "movement_correlation": 0.9837126453694949,
+          "source_dofs": 4,
+          "target_dofs": 2
+        }
+      },
+      "gesture_error": 0.1406490232697426,
+      "finger_movement_error": 0.02818296228335645,
+      "wrist_movement_error": 0.03181267256793064,
+      "wrist_results": {
+        "translation_movement_error": 0.0,
+        "rotation_movement_error": 0.06362534513586128
+      },
+      "overall_error": 0.09602556990364555,
+      "similarity_index": 90.84407870283331
+    }
+  ]
+}

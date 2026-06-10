@@ -1,0 +1,165 @@
+{
+  "source": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict.pkl",
+  "source_fk_metadata": {
+    "hand_name": "mano_right",
+    "urdf": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/urdf/rh_mano.urdf",
+    "mapped_joint_names": [
+      "j_index1y",
+      "j_index1z",
+      "j_index2",
+      "j_index3",
+      "j_middle1y",
+      "j_middle1z",
+      "j_middle2",
+      "j_middle3",
+      "j_pinky1y",
+      "j_pinky1z",
+      "j_pinky2",
+      "j_pinky3",
+      "j_ring1y",
+      "j_ring1z",
+      "j_ring2",
+      "j_ring3",
+      "j_thumb1x",
+      "j_thumb1y",
+      "j_thumb1z",
+      "j_thumb2y",
+      "j_thumb2z",
+      "j_thumb3"
+    ],
+    "hand_scale_m": 0.13230477453085582
+  },
+  "method": {
+    "movement": "correlation distance of normalized fingertip speeds",
+    "wrist": "RMSE of normalized wrist translation/rotation speeds",
+    "overall_weights": {
+      "movement": 0.8,
+      "wrist": 0.2
+    }
+  },
+  "results": [
+    {
+      "common_fingers": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "excluded_fingers": [],
+      "movement_error": 0.03305798964432105,
+      "wrist_error": 0.021724727564330353,
+      "overall_error": 0.030791337228322915,
+      "similarity_index": 96.96778876432023,
+      "target": "shadow_right",
+      "path": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict_shadow_right.pkl",
+      "frames": 60,
+      "fk_metadata": {
+        "hand_name": "shadow_right",
+        "urdf": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/urdf/shadow_hand_right.urdf",
+        "mapped_joint_names": [
+          "FFJ4",
+          "LFJ5",
+          "MFJ4",
+          "RFJ4",
+          "THJ5",
+          "FFJ3",
+          "LFJ4",
+          "MFJ3",
+          "RFJ3",
+          "THJ4",
+          "FFJ2",
+          "LFJ3",
+          "MFJ2",
+          "RFJ2",
+          "THJ3",
+          "FFJ1",
+          "LFJ2",
+          "MFJ1",
+          "RFJ1",
+          "THJ2",
+          "LFJ1",
+          "THJ1"
+        ],
+        "hand_scale_m": 0.14583227599082482
+      }
+    },
+    {
+      "common_fingers": [
+        "thumb",
+        "index",
+        "middle",
+        "ring"
+      ],
+      "excluded_fingers": [
+        "pinky"
+      ],
+      "movement_error": 0.04055268514120708,
+      "wrist_error": 0.03565154774372032,
+      "overall_error": 0.03957245766170973,
+      "similarity_index": 96.1200305140787,
+      "target": "allegro_right",
+      "path": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict_allegro_right.pkl",
+      "frames": 60,
+      "fk_metadata": {
+        "hand_name": "allegro_right",
+        "urdf": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/urdf/allegro_hand_right.urdf",
+        "mapped_joint_names": [
+          "joint_0.0",
+          "joint_12.0",
+          "joint_4.0",
+          "joint_8.0",
+          "joint_1.0",
+          "joint_13.0",
+          "joint_5.0",
+          "joint_9.0",
+          "joint_2.0",
+          "joint_14.0",
+          "joint_6.0",
+          "joint_10.0",
+          "joint_3.0",
+          "joint_15.0",
+          "joint_7.0",
+          "joint_11.0"
+        ],
+        "hand_scale_m": 0.09845318474791454
+      }
+    },
+    {
+      "common_fingers": [
+        "thumb",
+        "index",
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      "excluded_fingers": [],
+      "movement_error": 0.053127431156847316,
+      "wrist_error": 0.03181267256793064,
+      "overall_error": 0.04886447943906398,
+      "similarity_index": 95.2310178563504,
+      "target": "inspire_right",
+      "path": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/mouse/mouse/102_sv_dict_inspire_right.pkl",
+      "frames": 60,
+      "fk_metadata": {
+        "hand_name": "inspire_right",
+        "urdf": "/mnt/drive/yulun/projects/Shared-Latent-Space-ManipTrans/result/urdf/inspire_hand_right.urdf",
+        "mapped_joint_names": [
+          "R_thumb_proximal_yaw_joint",
+          "R_thumb_proximal_pitch_joint",
+          "R_index_proximal_joint",
+          "R_middle_proximal_joint",
+          "R_pinky_proximal_joint",
+          "R_ring_proximal_joint",
+          "R_thumb_intermediate_joint",
+          "R_index_intermediate_joint",
+          "R_middle_intermediate_joint",
+          "R_pinky_intermediate_joint",
+          "R_ring_intermediate_joint",
+          "R_thumb_distal_joint"
+        ],
+        "hand_scale_m": 0.19312857586817278
+      }
+    }
+  ]
+}
